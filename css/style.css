@@ -1,0 +1,188 @@
+/* Navbar personalizzata */
+.custom-navbar {
+  height:5rem;
+  background-color: #d81e1e;
+  padding: 0.5rem 1rem;
+  position: relative;
+  z-index: 1000;
+}
+
+/* Logo */
+.logo-img {
+  height: 3rem;
+}
+
+/* Link della navbar */
+.navbar-nav .nav-link {
+  color: white;
+  font-weight: bold;
+  margin-right: 1.5rem;
+  position: relative;
+  font-size: 1.1rem;
+  white-space: nowrap;
+}
+
+.navbar-nav .nav-link:hover {
+  color: #cdcdcd;
+}
+
+/* Modifica l'icona del menu (hamburger) */
+.navbar-toggler-icon {
+  background-color: transparent; /* Imposta il background trasparente */
+  width: 2rem; /* Larghezza dell'icona */
+  height: 1.5rem; /* Altezza totale dell'icona */
+  border-radius: 0; /* Rimuove eventuali bordi arrotondati */
+  background-image:
+    linear-gradient(to bottom, white 33%, transparent 33%), /* Prima linea */
+    linear-gradient(to bottom, white 33%, transparent 33%), /* Seconda linea */
+    linear-gradient(to bottom, white 33%, transparent 33%); /* Terza linea */
+  background-size: 100% 0.5rem; /* Ogni linea avrà una dimensione di 0.3rem di altezza */
+  background-position:
+    0 0,   /* Posizione prima linea */
+    0 0.5rem,  /* Posizione seconda linea */
+    0 1rem;  /* Posizione terza linea */
+}
+
+/* Dropdown menu */
+.nav-item.dropdown .dropdown-menu {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background-color: white;
+  min-width: 10rem;
+  padding: 0.5rem 0;
+  border: none;
+  box-shadow: 0 0.25rem 0.5rem rgba(0, 0, 0, 0.1);
+}
+
+/* Mostra dropdown al passaggio */
+.nav-item.dropdown:hover .dropdown-menu {
+  display: block;
+  color: #222;
+}
+
+/* Freccia sopra il dropdown */
+.nav-item.dropdown:hover .dropdown-menu::before {
+  content: "";
+  position: absolute;
+  top: -0.5rem;
+  left: 1.5rem;
+  border-width: 0.5rem;
+  border-style: solid;
+  border-color: transparent transparent white transparent;
+}
+
+/* Voci del dropdown */
+.dropdown-item {
+  color: #222;
+  padding: 0.625rem 1.25rem;
+  font-size: 1rem;
+}
+
+/* Hover sulle voci dropdown */
+.dropdown-item:hover {
+  background-color: transparent;
+  color: #555;
+}
+
+/* Icone social + lente + profilo */
+.icons-area {
+  display: flex;
+  align-items: center;
+}
+
+/* Icone */
+.icons-area a {
+  color: white;
+  font-size: 1.5rem;
+  margin-left: 0.8rem;
+  transition: color 0.3s ease;
+}
+
+.icons-area i.bi-search {
+  margin-left: -0.8rem;
+  margin-right: 2rem;
+}
+
+/* Hover sulle icone */
+.icons-area a:hover {
+  color: #ffc107;
+}
+
+/* Linea verticale */
+.vr {
+  background-color: white;
+  opacity: 1;
+  height: 3rem;
+  margin: 0 1rem;
+  width: 0.1rem;
+}
+
+/* Hamburger menu */
+.hamburger {
+  display: none;
+  background: none;
+  border: none;
+  font-size: 2rem;
+  color: white;
+  align-content: center;
+  cursor: pointer;
+}
+
+/* ------------------------- */
+/* Media Queries responsive */
+/* ------------------------- */
+
+/* Quando la larghezza è sotto i 75rem nascondi LIFE & STYLE */
+@media (max-width: 75rem) {
+  .life-style {
+    display: none !important;
+  }
+}
+
+/* Quando la larghezza è sotto i 60rem nascondi tutti i titoli e mostra l'hamburger */
+@media (max-width: 66rem) {
+  .menu-links {
+    display: none !important;
+  }
+  .hamburger {
+    display: block !important;
+  }
+}
+
+/* Quando la larghezza è sotto i 40rem nascondi anche i social */
+@media (max-width: 46rem) {
+  .custom-navbar {
+    height: 3.5rem !important;
+    display: flex;
+    align-items: center;
+    align-content: center;
+  }
+  .icons-area i.bi-search {
+    margin-right: 0;
+  }
+  .icons-area {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem; /* Spaziatura uniforme tra le icone */
+  }
+  .logo-img{
+    height: 2.2rem !important;
+    margin: 0 auto;
+  }
+  .icons-area a {
+    font-size: 1.2rem !important;
+  }
+  .hamburger{
+    font-size: 1.6rem !important;
+    margin-left: 0;
+  }
+  .social-icons {
+    display: none !important;
+  }
+  .vr {
+    display: none !important;
+  }
+}
