@@ -201,9 +201,83 @@
   border-top: 1px solid #9c9c9c;
 }
 
+.first-content-block {
+  max-width: 85.5rem;  /* Larghezza massima del contenuto */
+  margin: 1rem auto 0;  /* Centro il blocco e mantengo spazio sopra */
+}
+
+.first-content-inner {
+  width: calc(100% - 14rem);  /* Sottraggo lo spazio che voglio ai lati (7rem + 7rem) */
+  margin: 0 auto;  /* Centro il contenuto interno */
+}
+
+
+/* --- IMMAGINE --- */
+.img-container img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* --- LINEA ROSSA --- */
+.red-line {
+  height: 0.6rem;
+  background-color: #ed002d;
+  width: 100%;
+}
+
+/* --- SEZIONE NERA CON TESTO --- */
+.news-section {
+  background-color: #292929;
+  padding: 1.5rem 1rem;
+  text-align: center;
+}
+
+.news-section h2 {
+  font-size: 2.2rem;
+  font-weight: bold;
+}
+
+.news-section p {
+  font-size: 1.4rem;
+  color: #9c9c9c;
+}
+.bookmark-container {
+  position: absolute;
+  bottom: 1rem;
+  right: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.bookmark-text {
+  color: #ffffff;
+  font-size: 0.9rem;
+}
+
+.news-section {
+  position: relative;  /* Aggiungi questa proprietà */
+}
+.href-link {
+  text-decoration: none;
+}
+
 /* ------------------------- */
 /* Media Queries responsive */
 /* ------------------------- */
+
+@media (max-width: 89rem) {
+  .menu-scroll {
+    justify-content: flex-start;
+  }
+  .menu-line {
+    margin: 0;
+  }
+  .first-content-block {
+    width: calc(100% - 2.5rem);
+  }
+}
 
 /* Quando la larghezza è sotto i 75rem nascondi LIFE & STYLE */
 @media (max-width: 75rem) {
@@ -234,6 +308,24 @@
   }
   .hamburger {
     display: block !important;
+  }
+  .news-section {
+    text-align: left;
+  }
+  .img-container {
+    width: 100%;
+    height: 0;
+    padding-bottom: 66%;
+    position: relative;
+    overflow: hidden;
+  }
+  .img-container img{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
   }
 }
 
@@ -271,15 +363,21 @@
   .menu-link {
     font-size: 0.80rem; /* font più piccolo */
   }
-}
-
-@media (max-width: 89rem) {
-  .menu-scroll {
-    justify-content: flex-start;
-  }
-  .menu-line {
+  .first-content-block {
+    width: 100%;
     margin: 0;
   }
+  .news-section h2 {
+    font-size: 1.5rem;
+  }
+
+  .news-section p {
+    font-size: 1.1rem;
+  }
 }
+
+
+
+
 
 
