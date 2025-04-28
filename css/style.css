@@ -1,7 +1,7 @@
 /* Navbar personalizzata */
 .custom-navbar {
   height:5rem;
-  background-color: #d81e1e;
+  background-color: rgb(237, 0, 45);
   padding: 0.5rem 1rem;
   position: relative;
   z-index: 1000;
@@ -29,7 +29,7 @@
 /* Modifica l'icona del menu (hamburger) */
 .navbar-toggler-icon {
   background-color: transparent; /* Imposta il background trasparente */
-  width: 2rem; /* Larghezza dell'icona */
+  width: 1.6rem; /* Larghezza dell'icona */
   height: 1.5rem; /* Altezza totale dell'icona */
   border-radius: 0; /* Rimuove eventuali bordi arrotondati */
   background-image:
@@ -47,14 +47,27 @@
 .nav-item.dropdown .dropdown-menu {
   display: none;
   position: absolute;
-  top: 100%;
-  left: 0;
+  top: calc(100% + 1.2rem);
+  left: 30%;          /* Posiziona il punto di riferimento al centro */
+  transform: translateX(-20%);  /* Sposta il menu a sinistra del 50% della sua larghezza */
   background-color: white;
-  min-width: 10rem;
+  min-width: 11rem;
   padding: 0.5rem 0;
   border: none;
-  box-shadow: 0 0.25rem 0.5rem rgba(0, 0, 0, 0.1);
+  border-radius: 0;
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.2);
 }
+
+/* Aggiungiamo un'area invisibile per mantenere l'hover */
+.nav-item.dropdown::after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 1.2rem; /* Deve corrispondere allo spazio sopra il dropdown */
+  bottom: -1.2rem;
+  left: 0;
+}
+
 
 /* Mostra dropdown al passaggio */
 .nav-item.dropdown:hover .dropdown-menu {
@@ -63,15 +76,34 @@
 }
 
 /* Freccia sopra il dropdown */
+.nav-item.dropdown:hover .dropdown-menu::after {
+  content: "";
+  position: absolute;
+  top: -0.625rem;  /* Posizione della freccia fuori dal dropdown */
+  left: 20%;
+  transform: translateX(-50%);
+  width: 0;
+  height: 0;
+  border-left: 0.625rem solid transparent;
+  border-right: 0.625rem solid transparent;
+  border-bottom: 0.625rem solid white; /* Crea il triangolo bianco */
+}
+
+/* Ombra della freccia */
 .nav-item.dropdown:hover .dropdown-menu::before {
   content: "";
   position: absolute;
-  top: -0.5rem;
-  left: 1.5rem;
-  border-width: 0.5rem;
-  border-style: solid;
-  border-color: transparent transparent white transparent;
+  top: -0.6875rem;  /* Leggermente più in alto per creare l'effetto ombra */
+  left: 20%;
+  transform: translateX(-50%);
+  width: 0;
+  height: 0;
+  border-left: 0.6875rem solid transparent;
+  border-right: 0.6875rem solid transparent;
+  border-bottom: 0.6875rem solid rgba(0, 0, 0, 0.1); /* Crea l'ombra del triangolo */
+  z-index: -1;  /* Mette l'ombra dietro */
 }
+
 
 /* Voci del dropdown */
 .dropdown-item {
@@ -105,11 +137,6 @@
   margin-right: 2rem;
 }
 
-/* Hover sulle icone */
-.icons-area a:hover {
-  color: #ffc107;
-}
-
 /* Linea verticale */
 .vr {
   background-color: white;
@@ -130,6 +157,50 @@
   cursor: pointer;
 }
 
+.menu-link {
+  text-decoration: none;
+  color: #555; /* grigio scuro */
+  white-space: nowrap;
+  font-weight: 400;
+  font-size: 0.75rem; /* font più piccolo */
+}
+
+/* Nascondere scrollbar su Chrome/Safari */
+.menu-scroll::-webkit-scrollbar {
+  display: none;
+}
+
+.menu-line {
+  margin: 0 0.5rem;
+  border: none;             /* Tolgo i bordi di default */
+  border-top: 1px solid #9c9c9c; /* Linea sottile grigio chiaro */
+}
+
+/* Hover normale */
+.menu-link:hover {
+  color: #888; /* grigio più chiaro */
+  text-decoration: underline;
+}
+
+.menu-scroll {
+  display: flex;
+  flex-wrap: nowrap;         /* Non andare mai a capo */
+  overflow-x: auto;           /* Scroll orizzontale */
+  overflow-y: hidden;
+  -ms-overflow-style: none;   /* Per IE e Edge */
+  scrollbar-width: none;      /* Per Firefox */
+  background-color: white;
+  justify-content: center;
+  margin-top: 2rem;         /* Spazio sotto la navbar rossa */
+  padding: 0.5rem 1rem;       /* Padding sopra e sotto */
+}
+
+.dropdown-line {
+  margin: 0 1rem;
+  border: none;
+  border-top: 1px solid #9c9c9c;
+}
+
 /* ------------------------- */
 /* Media Queries responsive */
 /* ------------------------- */
@@ -142,7 +213,22 @@
 }
 
 /* Quando la larghezza è sotto i 60rem nascondi tutti i titoli e mostra l'hamburger */
-@media (max-width: 66rem) {
+@media (max-width: 66.5rem) {
+  .custom-navbar {
+    height: 4.2rem !important;
+    display: flex;
+    align-items: center;
+    align-content: center;
+  }
+  .menu-link {
+    color: black;
+    font-weight: bold;
+    font-size: 0.90rem; /* font più piccolo */
+  }
+  .menu-link:hover {
+    color: black;
+    text-decoration: none;
+  }
   .menu-links {
     display: none !important;
   }
@@ -162,12 +248,6 @@
   .icons-area i.bi-search {
     margin-right: 0;
   }
-  .icons-area {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 1rem; /* Spaziatura uniforme tra le icone */
-  }
   .logo-img{
     height: 2.2rem !important;
     margin: 0 auto;
@@ -175,9 +255,12 @@
   .icons-area a {
     font-size: 1.2rem !important;
   }
-  .hamburger{
-    font-size: 1.6rem !important;
-    margin-left: 0;
+  .navbar-toggler-icon {
+    height: 1.2rem !important;
+    background-position:
+      0 0,   /* Posizione prima linea */
+      0 0.4rem,  /* Posizione seconda linea */
+      0 0.8rem;  /* Posizione terza linea */
   }
   .social-icons {
     display: none !important;
@@ -185,4 +268,18 @@
   .vr {
     display: none !important;
   }
+  .menu-link {
+    font-size: 0.80rem; /* font più piccolo */
+  }
 }
+
+@media (max-width: 89rem) {
+  .menu-scroll {
+    justify-content: flex-start;
+  }
+  .menu-line {
+    margin: 0;
+  }
+}
+
+
