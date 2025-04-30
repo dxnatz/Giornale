@@ -263,6 +263,71 @@
   text-decoration: none;
 }
 
+/* Contenitore generale con padding */
+.news-cards-container {
+  display: flex;
+  gap: 2rem;
+  max-width: 85.5rem;
+  margin: 2rem auto 0;
+}
+
+
+
+/* Nasconde la scrollbar ma mantiene la funzionalità */
+.news-cards-container::-webkit-scrollbar {
+  display: none;
+}
+
+
+/* Singola card */
+.news-card {
+  flex: 1;
+  min-width: 0;
+}
+
+
+
+
+
+.news-card img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.news-card h3 {
+  font-size: clamp(0.8rem, 1.5vw, 1rem); /* Riduce proporzionalmente il font */
+  font-weight: bold;
+  margin: 0.5rem 0;
+}
+/* Info sotto titolo */
+.meta {
+  font-size: clamp(0.7rem, 1.2vw, 0.8rem); /* Riduce proporzionalmente il font */
+}
+
+
+.meta .category {
+  font-weight: bold;
+  opacity: 0.6;
+  text-transform: uppercase;
+}
+
+.meta .comments {
+  white-space: nowrap;
+}
+
+.meta .bookmark {
+  white-space: nowrap;
+}
+
+
+
+
+
+
+
+
+
 /* ------------------------- */
 /* Media Queries responsive */
 /* ------------------------- */
@@ -277,6 +342,11 @@
   .first-content-block {
     width: calc(100% - 2.5rem);
   }
+  .news-cards-container {
+    width: calc(100% - 2.5rem);
+    margin: 2rem auto 0;
+  }
+
 }
 
 /* Quando la larghezza è sotto i 75rem nascondi LIFE & STYLE */
@@ -374,6 +444,98 @@
   .news-section p {
     font-size: 1.1rem;
   }
+  .news-cards-container {
+    flex-direction: column;
+    gap: 0.25rem;
+    padding: 0 0.25rem;
+  }
+
+  /* Stile per la singola card */
+  .news-card {
+    display: grid;
+    grid-template-areas:
+      "img title"
+      "meta title";
+    grid-template-columns: 8rem 1fr;
+    gap: 0.25rem;
+    margin: 0;
+  }
+
+
+
+
+
+  .news-card img {
+    grid-area: img;
+    width: 8rem;
+    height: 6rem;
+    object-fit: cover;
+  }
+
+  .news-card h3 {
+    grid-area: title;
+    margin: 0;
+    font-size: 0.9rem;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    display: -webkit-box;
+  }
+
+  .meta {
+    grid-area: meta;
+    width: 8rem;
+    display: flex;
+    align-items: center;
+    position: relative;
+    overflow: visible;
+  }
+
+
+
+
+  .meta-left {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+
+
+  .meta-right {
+    position: absolute; /* Aggiunto */
+    left: 400%; /* Aggiunto */
+    white-space: nowrap; /* Aggiunto */
+  }
+
+
+
+
+
+
+  .meta .category,
+  .meta .comments,
+  .meta .bookmark {
+    font-size: 0.7rem;
+    white-space: nowrap;
+    display: flex;
+    align-items: center;
+    gap: 0.25rem;
+  }
+
+  .meta .category {
+    text-transform: uppercase;
+    font-weight: bold;
+    opacity: 0.6;
+  }
+
+
+
+
+
+
+
+
 }
 
 
