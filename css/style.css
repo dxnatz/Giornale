@@ -261,25 +261,26 @@
 }
 .href-link {
   text-decoration: none;
+  color: #292929;
+}
+.href-link:hover {
+  text-decoration:none;
 }
 
 /* Contenitore generale con padding */
 .news-cards-container {
-  display: flex;
-  gap: 2rem;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 2.7rem;
   max-width: 85.5rem;
   margin: 2rem auto 0;
+  padding-bottom: 2rem;
 }
 
-/* Nasconde la scrollbar ma mantiene la funzionalità */
-.news-cards-container::-webkit-scrollbar {
-  display: none;
-}
-
-/* Singola card */
 .news-card {
-  flex: 1;
-  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
 }
 
 .news-card img {
@@ -289,27 +290,57 @@
 }
 
 .news-card h3 {
-  font-size: clamp(0.8rem, 1.5vw, 1rem); /* Riduce proporzionalmente il font */
+  font-size: clamp(0.8rem, 1.3vw, 1rem);
   font-weight: bold;
   margin: 0.5rem 0;
+  /* Forziamo il titolo a occupare lo spazio rimanente */
+  flex-grow: 1;
 }
-/* Info sotto titolo */
+
 .meta {
-  font-size: clamp(0.7rem, 1.2vw, 0.8rem); /* Riduce proporzionalmente il font */
+  /* Forziamo la meta a stare sempre in fondo */
+  margin-top: auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .meta .category {
   font-weight: bold;
   opacity: 0.6;
   text-transform: uppercase;
+  font-size: 0.7rem;
 }
 
 .meta .comments {
   white-space: nowrap;
+  font-size: 0.8rem;
 }
 
 .meta .bookmark {
   white-space: nowrap;
+  font-weight: bold;
+  color: #292929;
+  font-size: 0.75rem;
+}
+
+.meta .bookmark i {
+  color: #ed002d;
+  font-size: 0.9rem;
+  vertical-align: middle;
+}
+
+.vertical-line {
+  display: inline-block;
+  height: 1.4rem;
+  width: 0.1rem;
+  background-color: rgba(0, 0, 0, 0.4);
+  margin: 0 0.12rem;
+  vertical-align: middle;
+}
+
+.meta .comments i {
+  vertical-align: middle;
 }
 
 
@@ -345,6 +376,9 @@
 @media (max-width: 75rem) {
   .life-style {
     display: none !important;
+  }
+  .meta .bookmark span{
+    display: none;
   }
 }
 
@@ -437,10 +471,12 @@
     font-size: 1.1rem;
   }
   .news-cards-container {
+    display: block;
     flex-direction: column;
     gap: 0.25rem;
     margin-top: 1rem;
     margin-left: 0.7rem;
+    padding-bottom: 0;
   }
 
   /* Stile per la singola card */
@@ -452,6 +488,7 @@
     grid-template-columns: 8rem 1fr;
     row-gap: 1rem;
     column-gap: 4.8rem;
+    padding-bottom: 2rem;
   }
 
 
@@ -470,6 +507,7 @@
     -webkit-box-orient: vertical;
     overflow: hidden;
     display: -webkit-box;
+    flex-grow: 0;
   }
 
   .meta {
@@ -477,12 +515,13 @@
     display: flex;
     align-items: center;
     width: 100%;
+    margin-top: 0;
   }
 
   .meta-left {
     display: flex;
     align-items: center;
-    gap: 0.75rem;
+    gap: 0.5rem;
   }
 
   .meta-right {
@@ -500,7 +539,6 @@
     display: flex;
     align-items: center;
     gap: 0.25rem;
-    padding-bottom: 2rem;
   }
 
   .meta .category {
@@ -508,9 +546,19 @@
     font-weight: bold;
     opacity: 0.6;
   }
+  .meta .bookmark span{
+    display: flex;
+  }
 
+  .vertical-line {
+    display: inline-block;
+    height: 1rem;
+    width: 0.1rem;
+    background-color: rgba(0, 0, 0, 0.4);
+    margin: 0 -0.2rem;
+    vertical-align: middle;
 
-
+  }
 
 
 
