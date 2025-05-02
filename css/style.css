@@ -1,3 +1,7 @@
+body {
+  padding-bottom: 3rem;
+}
+
 /* Navbar personalizzata */
 .custom-navbar {
   height: 5rem;
@@ -355,12 +359,26 @@
 
 .news-layout {
   display: grid;
-  grid-template-columns: 2fr 1fr;
+  grid-template-columns: 2.5fr 1fr;
   gap: 2.7rem;
   max-width: 85.5rem;  /* Stessa larghezza massima degli altri contenitori */
   margin: 2rem auto 0;
   width: calc(100% - 2.5rem);
+  position: relative;
 }
+
+/* Aggiungi questa nuova regola per la linea verticale */
+.news-layout::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: calc(2.5fr / (2.5fr + 1fr) * 100%); /* Posizione tra le colonne */
+  width: 0.15rem;
+  background-color: #e6e6e6; /* Colore della linea, puoi modificarlo */
+  transform: translateX(-0.7rem); /* Aggiusta la posizione */
+}
+
 
 .left-column {
   display: flex;
@@ -370,35 +388,43 @@
 
 .main-news {
   display: grid;
-  grid-template-columns: 1fr 2.5fr;
+  grid-template-columns: 1.1fr 2.5fr;
   background-color: #1e1e1e;
   color: white;
+  height: 23rem;
 }
 
 .main-news-text {
   padding: 1rem;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
-  background-color: #1e1e1e;
+  gap: 2rem;
+  background-color: #292929;
 }
 
 .main-news-text h2 {
-  font-size: 1.2rem;
+  font-size: 1.4rem;
+  font-weight: bold;
   margin: 0;
 }
 
 .main-news .meta {
   display: flex;
-  gap: 1rem;
   font-size: 0.75rem;
-  margin-top: 1rem;
+  margin-top: 0;
   align-items: center;
+  padding-top: 0.5rem;
 }
+.main-news .meta .vertical-line {
+  margin: 0 0.5rem;
+  background-color: rgba(255, 255, 255, 0.4);
+  width: 0.08rem;
+}
+
 
 .main-news img {
   width: 100%;
-  height: 100%;
+  height: 23rem;
   object-fit: cover;
 }
 
@@ -407,6 +433,13 @@
   grid-template-columns: repeat(2, 1fr);
   gap: 2.7rem;
 }
+
+.small-news-grid .news-card h3 {
+  font-size: 1.1rem;  /* Aumentato da 0.85rem */
+  font-weight: bold;
+  margin: 0.5rem 0 0.7rem 0; /* Aggiunto margin bottom per dare spazio alla meta */
+}
+
 
 .news-card img {
   width: 100%;
@@ -422,15 +455,24 @@
 .right-column {
   display: flex;
   flex-direction: column;
-  gap: 1.5rem;
-  justify-content: start;
+  gap: 2.5rem;
+  justify-content: center;
 }
 
 .side-news {
   display: flex;
   gap: 1rem;
   align-items: flex-start;
+  width: 100%;
+  padding-bottom: 2.5rem;
+  border-bottom: 0.15rem solid #e6e6e6;
 }
+/* Rimuoviamo il bordo dall'ultima notizia */
+.side-news:last-child {
+  border-bottom: none;
+  padding-bottom: 0;
+}
+
 
 .side-news img {
   width: 9rem;
@@ -442,15 +484,26 @@
   font-size: 0.85rem;
   margin: 0;
 }
+.side-news div {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between; /* Distribuisce il contenuto verticalmente */
+  min-height: 6.1rem; /* Stessa altezza dell'immagine */
+}
 
-.bookmark {
+
+.side-news .bookmark {
   font-size: 0.75rem;
   font-weight: bold;
   display: flex;
   align-items: center;
   gap: 0.25rem;
   margin-top: 0.5rem;
+  align-self: flex-end; /* Allinea il bookmark a destra */
 }
+
 
 .bookmark i {
   color: red;
