@@ -497,7 +497,7 @@ body {
 .side-news .bookmark {
   font-size: 0.75rem;
   font-weight: bold;
-  display: flex;
+  display: block;
   align-items: center;
   gap: 0.25rem;
   margin-top: 0.5rem;
@@ -508,6 +508,33 @@ body {
 .bookmark i {
   color: red;
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -542,7 +569,7 @@ body {
   .life-style {
     display: none !important;
   }
-  .meta .bookmark span{
+  .news-cards-container .news-card .meta .bookmark span{
     display: none;
   }
   .news-layout {
@@ -619,6 +646,94 @@ body {
     grid-template-columns: repeat(2, 1fr);
     gap: 1.5rem;
   }
+
+  /* Nascondiamo la linea verticale */
+  .news-layout::after {
+    display: none;
+  }
+
+  .news-layout {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    width: calc(100% - 2rem);
+  }
+
+  .main-news {
+    height: auto;
+    grid-template-columns: 1fr 2fr; /* Manteniamo il layout originale con testo a sinistra */
+  }
+
+  .main-news img {
+    height: 23rem; /* Manteniamo l'altezza originale */
+    width: 100%;
+    object-fit: cover;
+  }
+
+  /* Layout per le notizie secondarie (quelle che erano già nella colonna sinistra) */
+  .small-news-grid {
+    grid-template-columns: repeat(2, 1fr); /* Manteniamo due colonne */
+    gap: 2rem;
+  }
+
+  /* Le notizie che erano nella colonna destra ora vanno sotto a due a due */
+  .right-column {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+  }
+
+
+
+  .side-news {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    height: 100%;
+    padding-bottom: 0;
+    border-bottom: none;
+  }
+
+
+  .side-news img {
+    width: 100%;
+    height: 16.8rem;
+    display: block;
+  }
+
+
+  /* Adattiamo il contenitore del testo nella side-news */
+  .side-news div {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    min-height: auto;
+    width: 100%;
+  }
+  .side-news p {
+    font-size: 1.1rem;
+    font-weight: bold;
+    margin-top: -0.5rem;
+  }
+
+  .side-news .bookmark {
+    font-size: 0.75rem;
+    font-weight: bold;
+    display: block;
+    align-items: center;
+    gap: 0.25rem;
+    margin-top: 0.5rem;
+    align-self: flex-end; /* Allinea il bookmark a destra */
+  }
+
+
+  .bookmark i {
+    color: red;
+  }
+
+
+
+
 
 
 }
