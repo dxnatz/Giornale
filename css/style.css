@@ -466,6 +466,7 @@ body {
   width: 100%;
   padding-bottom: 2.5rem;
   border-bottom: 0.15rem solid #e6e6e6;
+  position: relative;
 }
 /* Rimuoviamo il bordo dall'ultima notizia */
 .side-news:last-child {
@@ -483,26 +484,35 @@ body {
 .side-news p {
   font-size: 0.85rem;
   margin: 0;
+  width: 100%;
 }
-.side-news div {
+.side-news div:first-of-type {
   flex: 1;
-  min-width: 0;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between; /* Distribuisce il contenuto verticalmente */
+  min-width: 0;    /* Questo permette al testo di andare a capo */
   min-height: 6.1rem; /* Stessa altezza dell'immagine */
+
 }
+
+
+
+
+
+
+.side-news .meta .left-items {
+  display: none;
+}
+
 
 
 .side-news .bookmark {
+  margin-top: auto;
+  position: absolute;  /* Posizionamento assoluto */
+  bottom: 0.6rem;     /* Distanza dal bordo inferiore */
+  right: 0;           /* Allinea a destra */
   font-size: 0.75rem;
   font-weight: bold;
-  display: block;
-  align-items: center;
-  gap: 0.25rem;
-  margin-top: 0.5rem;
-  align-self: flex-end; /* Allinea il bookmark a destra */
 }
+
 
 
 .bookmark i {
@@ -689,8 +699,14 @@ body {
     flex-direction: column;
     position: relative;
     height: 100%;
-    padding-bottom: 0;
     border-bottom: none;
+    margin-bottom: -7.2rem;
+  }
+
+  .side-news p {
+    font-size: 1.1rem;
+    font-weight: bold;
+    margin-top: -0.5rem;
   }
 
 
@@ -702,7 +718,7 @@ body {
 
 
   /* Adattiamo il contenitore del testo nella side-news */
-  .side-news div {
+  .side-news div:not(.meta) {
     flex: 1;
     display: flex;
     flex-direction: column;
@@ -710,20 +726,53 @@ body {
     min-height: auto;
     width: 100%;
   }
-  .side-news p {
-    font-size: 1.1rem;
-    font-weight: bold;
-    margin-top: -0.5rem;
+
+  .side-news .meta {
+    display: flex;
+    align-items: flex-start;
+    flex-direction: row;
+    justify-content: space-between;
+    padding-top: 0;
+    min-height: 6.1rem; /* Stessa altezza dell'immagine */
+
   }
 
-  .side-news .bookmark {
+  .side-news .meta .left-items {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    flex-direction: row;
+  }
+
+
+  .side-news .meta .category {
+    font-weight: bold;
+    text-transform: uppercase;
+    font-size: 0.7rem;
+  }
+
+  .side-news .meta .comments {
+    font-size: 0.8rem;
+  }
+
+
+  .side-news .meta .vertical-line {
+    margin: 0;
+    background-color: rgba(0, 0, 0, 0.4);
+    width: 0.08rem;
+  }
+
+
+
+  .side-news .meta .bookmark {
     font-size: 0.75rem;
     font-weight: bold;
-    display: block;
-    align-items: center;
-    gap: 0.25rem;
-    margin-top: 0.5rem;
-    align-self: flex-end; /* Allinea il bookmark a destra */
+    gap: 0;
+    margin-top: 0;
+    align-self: flex-start;
+    position: absolute;
+    bottom: 0;
+    right: 0;
   }
 
 
