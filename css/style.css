@@ -482,15 +482,20 @@ body {
   object-fit: cover;
 }
 
-.side-news p {
+.side-news .content a {
   font-size: 0.85rem;
-  margin: 0;
+  line-height: 1rem;
+  margin-top: 0.3rem;
+  padding-top: 0;
   width: 100%;
+  font-weight: bold;
+  display: -webkit-box;
 }
 .side-news div:first-of-type {
   flex: 1;
   min-width: 0;    /* Questo permette al testo di andare a capo */
   min-height: 6.1rem; /* Stessa altezza dell'immagine */
+  margin-top: -0.35rem;
 
 }
 
@@ -686,6 +691,10 @@ body {
     gap: 2rem;
   }
 
+  .small-news-grid .news-card h3 {
+    font-size: 1rem;
+  }
+
   /* Le notizie che erano nella colonna destra ora vanno sotto a due a due */
   .right-column {
     display: grid;
@@ -705,13 +714,19 @@ body {
     padding-bottom: 0;
   }
 
-  .side-news p {
-    font-size: 1.1rem;
+  .side-news .content a {
+    font-size: 1rem;
     font-weight: bold;
     height: 3.8rem; /* adatta in base a quante righe vuoi mostrare */
     margin-top: -0.5rem;
-    margin-bottom: 1rem;
+    margin-bottom: -1rem;
   }
+
+  .side-news a {
+    width: 100%;  /* Larghezza relativa del contenitore dell'immagine */
+    flex-shrink: 0;  /* Impedisce al link di rimpicciolirsi */
+  }
+
 
 
   .side-news img {
@@ -719,6 +734,7 @@ body {
     height: 16.8rem;
     display: block;
   }
+
 
 
   /* Adattiamo il contenitore del testo nella side-news */
@@ -967,6 +983,11 @@ body {
     gap: 2rem;
   }
 
+  .small-news-grid .news-card h3 {
+    font-size: 0.9rem;
+    margin-top: 0;
+  }
+
   .small-news-grid .bookmark {
     font-size: 0.75rem;
   }
@@ -990,22 +1011,28 @@ body {
     object-fit: cover;
   }
 
-  .side-news div:first-of-type {
+  .side-news a:first-of-type {
     display: grid;
     flex-direction: column;
     min-height: 8.4rem;
     gap: 3rem;
-    padding-top: 0.3rem;
+    margin-top: -0.2rem;
   }
 
-  .side-news p {
+  .side-new .content {
+    margin-top: 1.5rem;
+  }
+
+  .side-news .content a {
     font-size: 0.9rem;
     display: -webkit-box;
-    -webkit-line-clamp: 3;
-    -webkit-box-orient: vertical;
-    overflow: hidden;
-    margin-bottom: 1.5rem;
+    margin-top: 0;
+    padding-top: 0;
+    font-weight: bold;
+    margin-bottom: -0.8rem;
   }
+
+
 
   .side-news .meta {
     width: 100%;
@@ -1042,7 +1069,7 @@ body {
 
   .side-news .meta .bookmark {
     position: absolute;
-    bottom: 6.3rem;
+    bottom: 6.5rem;
     right: 0;
     font-size: 0.75rem;
     font-weight: bold;
@@ -1056,7 +1083,6 @@ body {
     vertical-align: middle;
     margin-left: 0.25rem;
   }
-
 
 
 
