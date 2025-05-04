@@ -365,16 +365,7 @@
 }
 
 /* Aggiungi questa nuova regola per la linea verticale */
-.news-layout::after {
-  content: '';
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  left: calc(2.5fr / (2.5fr + 1fr) * 100%); /* Posizione tra le colonne */
-  width: 0.15rem;
-  background-color: #e6e6e6; /* Colore della linea, puoi modificarlo */
-  transform: translateX(-0.7rem); /* Aggiusta la posizione */
-}
+
 
 
 .left-column {
@@ -455,7 +446,20 @@
   gap: 2.5rem;
   justify-content: center;
   min-width: 0;
+  position: relative;
+  padding-left: 2rem;
 }
+
+.right-column::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 0.15rem;
+  background-color: #e6e6e6;
+}
+
 
 .side-news {
   display: flex;
@@ -496,9 +500,9 @@
 
 }
 
-
-
-
+.side-news:last-child {
+  border-bottom: none;
+}
 
 
 .side-news .meta .left-items {
@@ -775,10 +779,6 @@ footer {
     gap: 1.5rem;
   }
 
-  /* Nascondiamo la linea verticale */
-  .news-layout::after {
-    display: none;
-  }
 
   .news-layout {
     grid-template-columns: 1fr;
@@ -812,7 +812,13 @@ footer {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: 2rem;
+    padding-left: 0;
   }
+
+  .right-column::before {
+    display: none;  /* Nasconde la linea verticale */
+  }
+
 
 
 
@@ -1065,17 +1071,26 @@ footer {
     display: grid;
     grid-template-columns: 1fr;  /* Una sola colonna */
     grid-template-rows: auto auto;  /* Altezza automatica per entrambe le righe */
-    height: auto;
     margin: 0 -1rem;  /* Compensare i margini del container */
   }
 
-  .main-news img {
+  .main-news .image-container {
     width: 100%;
-    height: 30rem;  /* Altezza fissa più piccola */
-    object-fit: cover;
-    grid-row: 1;  /* Posizione nella prima riga */
-    border-bottom: 0.6rem solid #ed002d;
+    height: 0;
+    padding-bottom: 66%;
+    position: relative;
+    overflow: hidden;
   }
+
+  .main-news img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
 
   .main-news-text {
     grid-row: 2;  /* Posizione nella seconda riga */
