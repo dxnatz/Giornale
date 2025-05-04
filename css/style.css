@@ -891,9 +891,7 @@ body {
     grid-area: title;
     margin: 0;
     font-size: 0.9rem;
-    -webkit-line-clamp: 3;
     -webkit-box-orient: vertical;
-    overflow: hidden;
     display: -webkit-box;
     flex-grow: 0;
   }
@@ -951,28 +949,38 @@ body {
     top: 3.5rem;
   }
 
-  .main-news-text h2 {
-    font-size: 1.5rem;
-  }
   .main-news {
-    display: flex;
-    flex-direction: column;  /* Imposta layout verticale */
+    display: grid;
+    grid-template-columns: 1fr;  /* Una sola colonna */
+    grid-template-rows: auto auto;  /* Altezza automatica per entrambe le righe */
     height: auto;
-    grid-template-columns: unset;  /* Rimuove il grid precedente */
-    margin-left: -1rem;  /* Compensa il margin del container */
-    margin-right: -1rem; /* Compensa il margin del container */
-    width: calc(100% + 2rem); /* Compensa per mantenere l'allineamento */
+    margin: 0 -1rem;  /* Compensare i margini del container */
   }
 
   .main-news img {
-    order: 1;
-    height: 30rem;
-    border-bottom: 0.6rem solid #ed002d; /* Aggiunge la linea rossa */
+    width: 100%;
+    height: 30rem;  /* Altezza fissa più piccola */
+    object-fit: cover;
+    grid-row: 1;  /* Posizione nella prima riga */
+    border-bottom: 0.6rem solid #ed002d;
   }
 
   .main-news-text {
-    order: 2;
+    grid-row: 2;  /* Posizione nella seconda riga */
+    padding: 1.2rem;
+    gap: 1rem;
   }
+
+  .main-news-text h2 {
+    font-size: 1.2rem;
+    line-height: 1.4;
+    margin-bottom: 0.5rem;
+  }
+
+  .left-column {
+    gap: 1rem;  /* Riduce lo spazio tra gli elementi */
+  }
+
 
 
 
@@ -980,7 +988,7 @@ body {
   .news-layout .right-column {
     display: flex;
     flex-direction: column;
-    gap: 2rem;
+    gap: 1rem;
   }
 
   .small-news-grid .news-card h3 {
@@ -990,6 +998,7 @@ body {
 
   .small-news-grid .bookmark {
     font-size: 0.75rem;
+    margin-top: -1rem;
   }
 
   .side-news {
@@ -1016,7 +1025,7 @@ body {
     flex-direction: column;
     min-height: 8.4rem;
     gap: 3rem;
-    margin-top: -0.2rem;
+    margin-top: -0.4rem;
   }
 
   .side-new .content {
