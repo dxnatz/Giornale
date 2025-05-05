@@ -543,6 +543,7 @@
   max-width: 85.5rem;  /* Stessa larghezza massima del news-cards-container */
   margin: 2rem auto 0;
   width: calc(100% - 2.5rem);  /* Stesso calcolo del news-cards-container */
+  gap: 2rem;
 }
 
 
@@ -565,15 +566,24 @@
   display: inline-block;
   font-size: 0.9rem;
   margin-bottom: 0.8rem;
-  width: 9.5rem;
+  width: fit-content;
 }
+
+.comment-icon {
+  position: absolute;
+  top: 0;
+  right: 0;
+  padding-top: 1.8rem;
+  padding-right: 1.2rem;
+}
+
 .href-link-quote {
   color: #ffffff;
   text-decoration: none;
 }
 
 .href-link-comment {
-  color: #8c8c8c;
+  color: #656565;
   text-decoration: none;
 }
 
@@ -582,7 +592,7 @@
   display: flex;
   flex-direction: column;
   flex: 1;
-  padding-top: 0.5rem; /* Spazio sopra controllato */
+  padding-top: 0; /* Spazio sopra controllato */
 }
 
 .quote-icon {
@@ -600,25 +610,13 @@
   overflow: hidden;
 }
 
-.quote-footer {
-  display: flex;
-  justify-content: flex-end;
-  align-items: flex-end;
-  padding-left: 1.5rem;
-}
 .comment-icon {
-  color: #777;
   font-size: 0.9rem;
 }
 
 .comment-icon i {
   vertical-align: middle;
   font-size: 1.2rem;
-}
-.quote-grid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 2rem;
 }
 
 
@@ -823,10 +821,11 @@ footer {
   }
   .quote-grid {
     grid-template-columns: repeat(2, 1fr);
-    gap: 1.5rem;
+    gap: 0 1.5rem;
   }
   .quote-card {
-    height: 14.5rem;
+    min-height: 12.5rem;
+    height: auto;
   }
 }
 
@@ -1048,6 +1047,13 @@ footer {
 
 
 
+  .quote-card {
+    min-height: 10.5rem;
+    height: auto;
+  }
+
+
+
 }
 
 /* Quando la larghezza è sotto i 40rem nascondi anche i social */
@@ -1263,7 +1269,7 @@ footer {
   .side-news:last-child {
     border-bottom: none;
     padding-bottom: 0;
-    margin-bottom: -4rem;
+    margin-bottom: -7.5rem;
   }
   .side-news img {
     width: 12rem;
