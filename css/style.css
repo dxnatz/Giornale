@@ -559,13 +559,22 @@
 }
 
 .quote-author {
-  background-color: #d9212c;
-  color: white;
+  background-color: #ED002DFF;
   font-weight: bold;
   padding: 0.4rem 1rem;
   display: inline-block;
   font-size: 0.9rem;
   margin-bottom: 0.8rem;
+  width: 9.5rem;
+}
+.href-link-quote {
+  color: #ffffff;
+  text-decoration: none;
+}
+
+.href-link-comment {
+  color: #8c8c8c;
+  text-decoration: none;
 }
 
 .quote-body {
@@ -578,10 +587,9 @@
 
 .quote-icon {
   font-size: 2rem;
-  color: #444;
 }
 .quote-text {
-  color: #333;
+  opacity: 0.6;
   font-size: 1.1rem;
   line-height: 1.5;
   margin-bottom: auto;
@@ -594,13 +602,18 @@
 
 .quote-footer {
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-end;
   align-items: flex-end;
-  margin-top: 1rem;
+  padding-left: 1.5rem;
 }
 .comment-icon {
   color: #777;
-  font-size: 1rem;
+  font-size: 0.9rem;
+}
+
+.comment-icon i {
+  vertical-align: middle;
+  font-size: 1.2rem;
 }
 .quote-grid {
   display: grid;
@@ -807,6 +820,13 @@ footer {
   .news-layout {
     width: calc(100% - 2.5rem);
     margin: 2rem auto 0;
+  }
+  .quote-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+  }
+  .quote-card {
+    height: 14.5rem;
   }
 }
 
@@ -1020,9 +1040,10 @@ footer {
   }
 
 
+
+
   .quote-grid {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 1.5rem;
+    grid-template-columns: 1fr;
   }
 
 
@@ -1323,9 +1344,7 @@ footer {
     margin-left: 0.25rem;
   }
 
-  .quote-grid {
-    grid-template-columns: 1fr;
-  }
+
 
 
 }
