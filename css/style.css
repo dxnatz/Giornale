@@ -1,5 +1,3 @@
-
-/* Navbar personalizzata */
 .custom-navbar {
   height: 5rem;
   background-color: rgb(237, 0, 45);
@@ -9,16 +7,31 @@
   z-index: 1000;
 }
 
+.navbar-scrolled {
+  background-color: white;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
 
+.navbar-scrolled .nav-link,
+.navbar-scrolled .icons-area a {
+  color: #292929;
+}
 
+.navbar-scrolled .vr {
+  background-color: #292929;
+}
 
+.navbar-scrolled .navbar-toggler-icon {
+  background-image:
+    linear-gradient(to bottom, #292929 33%, transparent 33%),
+    linear-gradient(to bottom, #292929 33%, transparent 33%),
+    linear-gradient(to bottom, #292929 33%, transparent 33%);
+}
 
-  /* Logo */
 .logo-img {
   height: 3rem;
 }
 
-/* Link della navbar */
 .navbar-nav .nav-link {
   color: white;
   font-weight: bold;
@@ -32,21 +45,20 @@
   color: #cdcdcd;
 }
 
-/* Modifica l'icona del menu (hamburger) */
 .navbar-toggler-icon {
-  background-color: transparent; /* Imposta il background trasparente */
-  width: 1.6rem; /* Larghezza dell'icona */
-  height: 1.5rem; /* Altezza totale dell'icona */
-  border-radius: 0; /* Rimuove eventuali bordi arrotondati */
+  background-color: transparent;
+  width: 1.6rem;
+  height: 1.5rem;
+  border-radius: 0;
   background-image:
-    linear-gradient(to bottom, white 33%, transparent 33%), /* Prima linea */
-    linear-gradient(to bottom, white 33%, transparent 33%), /* Seconda linea */
-    linear-gradient(to bottom, white 33%, transparent 33%); /* Terza linea */
-  background-size: 100% 0.5rem; /* Ogni linea avrà una dimensione di 0.3rem di altezza */
+    linear-gradient(to bottom, white 33%, transparent 33%),
+    linear-gradient(to bottom, white 33%, transparent 33%),
+    linear-gradient(to bottom, white 33%, transparent 33%);
+  background-size: 100% 0.5rem;
   background-position:
-    0 0,   /* Posizione prima linea */
-    0 0.5rem,  /* Posizione seconda linea */
-    0 1rem;  /* Posizione terza linea */
+    0 0,
+    0 0.5rem,
+    0 1rem;
 }
 
 /* Dropdown menu */
@@ -54,8 +66,8 @@
   display: none;
   position: absolute;
   top: calc(100% + 1.2rem);
-  left: 30%;          /* Posiziona il punto di riferimento al centro */
-  transform: translateX(-20%);  /* Sposta il menu a sinistra del 50% della sua larghezza */
+  left: 30%;
+  transform: translateX(-20%);
   background-color: white;
   min-width: 11rem;
   padding: 0.5rem 0;
@@ -64,52 +76,46 @@
   box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.2);
 }
 
-/* Aggiungiamo un'area invisibile per mantenere l'hover */
 .nav-item.dropdown::after {
   content: '';
   position: absolute;
   width: 100%;
-  height: 1.2rem; /* Deve corrispondere allo spazio sopra il dropdown */
+  height: 1.2rem;
   bottom: -1.2rem;
   left: 0;
 }
 
-
-/* Mostra dropdown al passaggio */
 .nav-item.dropdown:hover .dropdown-menu {
   display: block;
   color: #222;
 }
 
-/* Freccia sopra il dropdown */
 .nav-item.dropdown:hover .dropdown-menu::after {
   content: "";
   position: absolute;
-  top: -0.625rem;  /* Posizione della freccia fuori dal dropdown */
+  top: -0.625rem;
   left: 20%;
   transform: translateX(-50%);
   width: 0;
   height: 0;
   border-left: 0.625rem solid transparent;
   border-right: 0.625rem solid transparent;
-  border-bottom: 0.625rem solid white; /* Crea il triangolo bianco */
+  border-bottom: 0.625rem solid white;
 }
 
-/* Ombra della freccia */
 .nav-item.dropdown:hover .dropdown-menu::before {
   content: "";
   position: absolute;
-  top: -0.6875rem;  /* Leggermente più in alto per creare l'effetto ombra */
+  top: -0.6875rem;
   left: 20%;
   transform: translateX(-50%);
   width: 0;
   height: 0;
   border-left: 0.6875rem solid transparent;
   border-right: 0.6875rem solid transparent;
-  border-bottom: 0.6875rem solid rgba(0, 0, 0, 0.1); /* Crea l'ombra del triangolo */
-  z-index: -1;  /* Mette l'ombra dietro */
+  border-bottom: 0.6875rem solid rgba(0, 0, 0, 0.1);
+  z-index: -1;
 }
-
 
 /* Voci del dropdown */
 .dropdown-item {
@@ -118,7 +124,6 @@
   font-size: 1rem;
 }
 
-/* Hover sulle voci dropdown */
 .dropdown-item:hover {
   background-color: transparent;
   color: #555;
@@ -130,7 +135,6 @@
   align-items: center;
 }
 
-/* Icone */
 .icons-area a {
   color: white;
   font-size: 1.5rem;
@@ -165,43 +169,39 @@
 
 .menu-link {
   text-decoration: none;
-  color: #555; /* grigio scuro */
+  color: #555;
   white-space: nowrap;
   font-weight: 400;
-  font-size: 0.75rem; /* font più piccolo */
+  font-size: 0.75rem;
 }
-
-
 
 .menu-line {
   margin: 0 0.5rem;
-  border: none;             /* Tolgo i bordi di default */
-  border-top: 1px solid #9c9c9c; /* Linea sottile grigio chiaro */
+  border: none;
+  border-top: 1px solid #9c9c9c;
 }
 
-/* Hover normale */
 .menu-link:hover {
-  color: #888; /* grigio più chiaro */
+  color: #888;
   text-decoration: underline;
 }
 
 .menu-scroll {
   display: flex;
-  flex-wrap: nowrap;         /* Non andare mai a capo */
-  overflow-x: auto;           /* Scroll orizzontale */
+  flex-wrap: nowrap;
+  overflow-x: auto;
   overflow-y: hidden;
-  -ms-overflow-style: none;   /* Per IE e Edge */
-  scrollbar-width: none;      /* Per Firefox */
+  -ms-overflow-style: none;
+  scrollbar-width: none;
   background-color: white;
   justify-content: center;
-  margin-top: 2rem;         /* Spazio sotto la navbar rossa */
-  padding: 0.5rem 1rem;       /* Padding sopra e sotto */
+  margin-top: 2rem;
+  padding: 0.5rem 1rem;
   position: sticky;
   top: 5rem;
   z-index: 999;
 }
 
-/* Nascondere scrollbar su Chrome/Safari */
 .menu-scroll::-webkit-scrollbar {
   display: none;
 }
@@ -213,31 +213,27 @@
 }
 
 .first-content-block {
-  max-width: 85.5rem;  /* Larghezza massima del contenuto */
-  margin: 1rem auto 0;  /* Centro il blocco e mantengo spazio sopra */
+  max-width: 85.5rem;
+  margin: 1rem auto 0;
 }
 
 .first-content-inner {
-  width: calc(100% - 14rem);  /* Sottraggo lo spazio che voglio ai lati (7rem + 7rem) */
-  margin: 0 auto;  /* Centro il contenuto interno */
+  width: calc(100% - 14rem);
+  margin: 0 auto;
 }
 
-
-/* --- IMMAGINE --- */
 .img-container img {
   width: 100%;
   height: auto;
   display: block;
 }
 
-/* --- LINEA ROSSA --- */
 .red-line {
   height: 0.6rem;
   background-color: #ed002d;
   width: 100%;
 }
 
-/* --- SEZIONE NERA CON TESTO --- */
 .news-section {
   background-color: #292929;
   padding: 1.5rem 1rem;
@@ -246,13 +242,13 @@
 
 .news-section h2 {
   font-size: 2.2rem;
-  font-weight: bold;
 }
 
 .news-section p {
   font-size: 1.4rem;
   color: #9c9c9c;
 }
+
 .bookmark-container {
   position: absolute;
   bottom: 1rem;
@@ -268,17 +264,18 @@
 }
 
 .news-section {
-  position: relative;  /* Aggiungi questa proprietà */
+  position: relative;
 }
+
 .href-link {
   text-decoration: none;
   color: #292929;
 }
+
 .href-link:hover {
   text-decoration:none;
 }
 
-/* Contenitore generale con padding */
 .news-cards-container {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
@@ -302,14 +299,11 @@
 
 .news-card h3 {
   font-size: clamp(0.8rem, 1.3vw, 1rem);
-  font-weight: bold;
   margin: 0.5rem 0;
-  /* Forziamo il titolo a occupare lo spazio rimanente */
   flex-grow: 1;
 }
 
 .meta {
-  /* Forziamo la meta a stare sempre in fondo */
   margin-top: auto;
   display: flex;
   justify-content: space-between;
@@ -358,15 +352,11 @@
   display: grid;
   grid-template-columns: 2.5fr 1fr;
   gap: 2.7rem;
-  max-width: 85.5rem;  /* Stessa larghezza massima degli altri contenitori */
+  max-width: 85.5rem;
   margin: 2rem auto 0;
   width: calc(100% - 2.5rem);
   position: relative;
 }
-
-/* Aggiungi questa nuova regola per la linea verticale */
-
-
 
 .left-column {
   display: flex;
@@ -392,7 +382,6 @@
 
 .main-news-text h2 {
   font-size: 1.4rem;
-  font-weight: bold;
   margin: 0;
 }
 
@@ -403,12 +392,12 @@
   align-items: center;
   padding-top: 0.5rem;
 }
+
 .main-news .meta .vertical-line {
   margin: 0 0.5rem;
   background-color: rgba(255, 255, 255, 0.4);
   width: 0.08rem;
 }
-
 
 .main-news img {
   width: 100%;
@@ -423,11 +412,9 @@
 }
 
 .small-news-grid .news-card h3 {
-  font-size: 1.1rem;  /* Aumentato da 0.85rem */
-  font-weight: bold;
-  margin: 0.5rem 0 0.7rem 0; /* Aggiunto margin bottom per dare spazio alla meta */
+  font-size: 1.1rem;
+  margin: 0.5rem 0 0.7rem 0;
 }
-
 
 .news-card img {
   width: 100%;
@@ -460,7 +447,6 @@
   background-color: #e6e6e6;
 }
 
-
 .side-news {
   display: flex;
   gap: 1rem;
@@ -470,12 +456,11 @@
   border-bottom: 0.15rem solid #e6e6e6;
   position: relative;
 }
-/* Rimuoviamo il bordo dall'ultima notizia */
+
 .side-news:last-child .bookmark {
   border-bottom: none;
   padding-bottom: 0;
 }
-
 
 .side-news img {
   width: 9rem;
@@ -489,63 +474,45 @@
   margin-top: 0.3rem;
   padding-top: 0;
   width: 100%;
-  font-weight: bold;
   display: -webkit-box;
 }
+
 .side-news div:first-of-type {
   flex: 1;
-  min-width: 0;    /* Questo permette al testo di andare a capo */
-  min-height: 6.1rem; /* Stessa altezza dell'immagine */
+  min-width: 0;
+  min-height: 6.1rem;
   margin-top: -0.35rem;
-
 }
 
 .side-news:last-child {
   border-bottom: none;
 }
 
-
 .side-news .meta .left-items {
   display: none;
 }
 
-
-
 .side-news .bookmark {
   margin-top: auto;
-  position: absolute;  /* Posizionamento assoluto */
-  bottom: 0.6rem;     /* Distanza dal bordo inferiore */
-  right: 0;           /* Allinea a destra */
+  position: absolute;
+  bottom: 0.6rem;
+  right: 0;
   font-size: 0.75rem;
   font-weight: bold;
 }
-
-
 
 .bookmark i {
   color: red;
 }
 
-
-
-
-
-
-
-
-
-
-
-
 .quote-grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  max-width: 85.5rem;  /* Stessa larghezza massima del news-cards-container */
+  max-width: 85.5rem;
   margin: 2rem auto 0;
-  width: calc(100% - 2.5rem);  /* Stesso calcolo del news-cards-container */
+  width: calc(100% - 2.5rem);
   gap: 2rem;
 }
-
 
 .quote-card {
   background-color: #fce6e6;
@@ -592,12 +559,13 @@
   display: flex;
   flex-direction: column;
   flex: 1;
-  padding-top: 0; /* Spazio sopra controllato */
+  padding-top: 0;
 }
 
 .quote-icon {
   font-size: 2rem;
 }
+
 .quote-text {
   opacity: 0.6;
   font-size: 1.1rem;
@@ -618,31 +586,6 @@
   vertical-align: middle;
   font-size: 1.2rem;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 footer {
   background-color: #111;
@@ -741,95 +684,52 @@ footer {
   color: #aaa;
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/* ------------------------- */
 /* Media Queries responsive */
-/* ------------------------- */
 
 @media (max-width: 89rem) {
   .menu-scroll {
     justify-content: flex-start;
   }
+
   .menu-line {
     margin: 0;
   }
+
   .first-content-block {
     width: calc(100% - 2.5rem);
   }
+
   .news-cards-container {
     width: calc(100% - 2.5rem);
     margin: 2rem auto 0;
   }
-
 }
 
-/* Quando la larghezza è sotto i 75rem nascondi LIFE & STYLE */
 @media (max-width: 75rem) {
   .life-style {
     display: none !important;
   }
+
   .news-cards-container .news-card .meta .bookmark span{
     display: none;
   }
+
   .news-layout {
     width: calc(100% - 2.5rem);
     margin: 2rem auto 0;
   }
+
   .quote-grid {
     grid-template-columns: repeat(2, 1fr);
     gap: 0 1.5rem;
   }
+
   .quote-card {
     min-height: 12.5rem;
     height: auto;
   }
 }
 
-/* Quando la larghezza è sotto i 60rem nascondi tutti i titoli e mostra l'hamburger */
 @media (max-width: 66.5rem) {
   .custom-navbar {
     height: 4.2rem !important;
@@ -837,24 +737,30 @@ footer {
     align-items: center;
     align-content: center;
   }
+
   .menu-link {
     color: black;
     font-weight: bold;
-    font-size: 0.90rem; /* font più piccolo */
+    font-size: 0.90rem;
   }
+
   .menu-link:hover {
     color: black;
     text-decoration: none;
   }
+
   .menu-links {
     display: none !important;
   }
+
   .hamburger {
     display: block !important;
   }
+
   .news-section {
     text-align: left;
   }
+
   .img-container {
     width: 100%;
     height: 0;
@@ -862,6 +768,7 @@ footer {
     position: relative;
     overflow: hidden;
   }
+
   .img-container img{
     position: absolute;
     top: 0;
@@ -870,16 +777,18 @@ footer {
     height: 100%;
     object-fit: cover;
   }
+
   .menu-scroll {
     top: 4.2rem;
   }
+
   .news-layout {
-    grid-template-columns: 1fr;  /* Stack verticale */
+    grid-template-columns: 1fr;
     gap: 2rem;
   }
 
   .main-news {
-    grid-template-columns: 1fr;  /* Stack verticale */
+    grid-template-columns: 1fr;
   }
 
   .main-news img {
@@ -888,7 +797,7 @@ footer {
   }
 
   .small-news-grid {
-    grid-template-columns: 1fr;  /* Una colonna su mobile */
+    grid-template-columns: 1fr;
     gap: 1.5rem;
   }
 
@@ -897,7 +806,6 @@ footer {
     grid-template-columns: repeat(2, 1fr);
     gap: 1.5rem;
   }
-
 
   .news-layout {
     grid-template-columns: 1fr;
@@ -907,18 +815,17 @@ footer {
 
   .main-news {
     height: auto;
-    grid-template-columns: 1fr 2fr; /* Manteniamo il layout originale con testo a sinistra */
+    grid-template-columns: 1fr 2fr;
   }
 
   .main-news img {
-    height: 23rem; /* Manteniamo l'altezza originale */
+    height: 23rem;
     width: 100%;
     object-fit: cover;
   }
 
-  /* Layout per le notizie secondarie (quelle che erano già nella colonna sinistra) */
   .small-news-grid {
-    grid-template-columns: repeat(2, 1fr); /* Manteniamo due colonne */
+    grid-template-columns: repeat(2, 1fr);
     gap: 2rem;
   }
 
@@ -926,7 +833,6 @@ footer {
     font-size: 1rem;
   }
 
-  /* Le notizie che erano nella colonna destra ora vanno sotto a due a due */
   .right-column {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
@@ -935,11 +841,8 @@ footer {
   }
 
   .right-column::before {
-    display: none;  /* Nasconde la linea verticale */
+    display: none;
   }
-
-
-
 
   .side-news {
     display: flex;
@@ -953,18 +856,15 @@ footer {
 
   .side-news .content a {
     font-size: 1rem;
-    font-weight: bold;
-    height: 3.8rem; /* adatta in base a quante righe vuoi mostrare */
+    height: 3.8rem;
     margin-top: -0.5rem;
     margin-bottom: -1rem;
   }
 
   .side-news a {
-    width: 100%;  /* Larghezza relativa del contenitore dell'immagine */
-    flex-shrink: 0;  /* Impedisce al link di rimpicciolirsi */
+    width: 100%;
+    flex-shrink: 0;
   }
-
-
 
   .side-news img {
     width: 100%;
@@ -972,9 +872,6 @@ footer {
     display: block;
   }
 
-
-
-  /* Adattiamo il contenitore del testo nella side-news */
   .side-news div:not(.meta) {
     flex: 1;
     display: flex;
@@ -990,7 +887,7 @@ footer {
     flex-direction: row;
     justify-content: space-between;
     padding-top: 0;
-    min-height: 6.1rem; /* Stessa altezza dell'immagine */
+    min-height: 6.1rem;
 
   }
 
@@ -1002,7 +899,6 @@ footer {
     bottom: 0.2rem;
   }
 
-
   .side-news .meta .category {
     font-weight: bold;
     text-transform: uppercase;
@@ -1013,14 +909,11 @@ footer {
     font-size: 0.8rem;
   }
 
-
   .side-news .meta .vertical-line {
     margin: 0;
     background-color: rgba(0, 0, 0, 0.4);
     width: 0.08rem;
   }
-
-
 
   .side-news .meta .bookmark {
     font-size: 0.75rem;
@@ -1033,30 +926,20 @@ footer {
     right: 0;
   }
 
-
   .bookmark i {
     color: red;
   }
-
-
-
 
   .quote-grid {
     grid-template-columns: 1fr;
   }
 
-
-
   .quote-card {
     min-height: 10.5rem;
     height: auto;
   }
-
-
-
 }
 
-/* Quando la larghezza è sotto i 40rem nascondi anche i social */
 @media (max-width: 46rem) {
   .custom-navbar {
     height: 3.5rem !important;
@@ -1064,36 +947,45 @@ footer {
     align-items: center;
     align-content: center;
   }
+
   .icons-area i.bi-search {
     margin-right: 0;
   }
+
   .logo-img{
     height: 2.2rem;
     margin: 0 auto;
   }
+
   .icons-area a {
     font-size: 1.2rem;
   }
+
   .navbar-toggler-icon {
     height: 1.2rem;
     background-position:
-      0 0,   /* Posizione prima linea */
-      0 0.4rem,  /* Posizione seconda linea */
-      0 0.8rem;  /* Posizione terza linea */
+      0 0,
+      0 0.4rem,
+      0 0.8rem;
   }
+
   .social-icons-navbar {
     display: none !important;
   }
+
   .vr {
     display: none;
   }
+
   .menu-link {
-    font-size: 0.80rem; /* font più piccolo */
+    font-size: 0.80rem;
   }
+
   .first-content-block {
     width: 100%;
     margin: 0;
   }
+
   .news-section h2 {
     font-size: 1.5rem;
   }
@@ -1101,6 +993,7 @@ footer {
   .news-section p {
     font-size: 1.1rem;
   }
+
   .news-cards-container {
     display: block;
     flex-direction: column;
@@ -1115,18 +1008,16 @@ footer {
     font-size: 0.75rem;
   }
 
-  /* Stile per la singola card */
   .news-card {
     display: grid;
     grid-template-areas:
     "img title"
-    "meta meta"; /* ← ora meta occupa TUTTA la riga */
+    "meta meta";
     grid-template-columns: 8rem 1fr;
     row-gap: 1rem;
     column-gap: 4.8rem;
     padding-bottom: 2rem;
   }
-
 
   .news-card img {
     grid-area: img;
@@ -1164,7 +1055,6 @@ footer {
     align-items: center;
   }
 
-
   .meta .category,
   .meta .comments,
   .meta .bookmark {
@@ -1199,9 +1089,9 @@ footer {
 
   .main-news {
     display: grid;
-    grid-template-columns: 1fr;  /* Una sola colonna */
-    grid-template-rows: auto auto;  /* Altezza automatica per entrambe le righe */
-    margin: 0 -1rem;  /* Compensare i margini del container */
+    grid-template-columns: 1fr;
+    grid-template-rows: auto auto;
+    margin: 0 -1rem;
   }
 
   .main-news .image-container {
@@ -1221,9 +1111,8 @@ footer {
     object-fit: cover;
   }
 
-
   .main-news-text {
-    grid-row: 2;  /* Posizione nella seconda riga */
+    grid-row: 2;
     padding: 1.2rem;
     gap: 1rem;
   }
@@ -1235,11 +1124,8 @@ footer {
   }
 
   .left-column {
-    gap: 1rem;  /* Riduce lo spazio tra gli elementi */
+    gap: 1rem;
   }
-
-
-
 
   .small-news-grid,
   .news-layout .right-column {
@@ -1294,11 +1180,8 @@ footer {
     display: -webkit-box;
     margin-top: 0;
     padding-top: 0;
-    font-weight: bold;
     margin-bottom: -0.8rem;
   }
-
-
 
   .side-news .meta {
     width: 100%;
@@ -1306,14 +1189,11 @@ footer {
     justify-content: space-between;
   }
 
-
-
   .side-news .meta .left-items {
     position: absolute;
     bottom: 2.5rem;
     left: 0;
   }
-
 
   .side-news .meta .category {
     font-size: 0.7rem;
@@ -1342,19 +1222,10 @@ footer {
     white-space: nowrap;
   }
 
-
   .side-news .meta .bookmark i {
     color: #ed002d;
     font-size: 0.9rem;
     vertical-align: middle;
     margin-left: 0.25rem;
   }
-
-
-
-
 }
-
-
-
-
