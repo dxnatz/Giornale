@@ -533,6 +533,106 @@
 
 
 
+
+
+
+
+.quote-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  max-width: 85.5rem;  /* Stessa larghezza massima del news-cards-container */
+  margin: 2rem auto 0;
+  width: calc(100% - 2.5rem);  /* Stesso calcolo del news-cards-container */
+}
+
+
+.quote-card {
+  background-color: #fce6e6;
+  padding: 1.5rem 1.5rem 1.5rem 0;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  height: 25rem;
+  margin-top: 1.5rem;
+  border-bottom: 0.2rem solid #111;
+  width: 100%;
+}
+
+.quote-author {
+  background-color: #d9212c;
+  color: white;
+  font-weight: bold;
+  padding: 0.4rem 1rem;
+  display: inline-block;
+  font-size: 0.9rem;
+  margin-bottom: 0.8rem;
+}
+
+.quote-body {
+  padding-left: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  padding-top: 0.5rem; /* Spazio sopra controllato */
+}
+
+.quote-icon {
+  font-size: 2rem;
+  color: #444;
+}
+.quote-text {
+  color: #333;
+  font-size: 1.1rem;
+  line-height: 1.5;
+  margin-bottom: auto;
+  flex-grow: 1;
+  display: -webkit-box;
+  -webkit-line-clamp: 6;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.quote-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin-top: 1rem;
+}
+.comment-icon {
+  color: #777;
+  font-size: 1rem;
+}
+.quote-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 2rem;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 footer {
   background-color: #111;
   color: #ccc;
@@ -920,7 +1020,10 @@ footer {
   }
 
 
-
+  .quote-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+  }
 
 
 
@@ -1220,6 +1323,9 @@ footer {
     margin-left: 0.25rem;
   }
 
+  .quote-grid {
+    grid-template-columns: 1fr;
+  }
 
 
 }
